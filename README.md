@@ -68,9 +68,9 @@ Below is a curated comparison of leading commercial SaaS platforms, sorted by es
 
 ## 🔓 Open-Source GitHub Projects
 
-Below is an extensive collection of open-source Kubernetes cost monitoring, autoscaling, and rightsizing tools, sorted by **GitHub Stars_Count (Descending)**. Each Stars_Badge links directly to the stargazers page of that repository.
+Below is an extensive collection of open-source Kubernetes cost monitoring, autoscaling, and rightsizing tools, sorted by **GitHub_Stars_Count (Descending)**. Each Stars_Badge links directly to the stargazers page of that repository.
 
-| Open-Source Project 🛠️ | GitHub Stars_Count ⭐ | Primary Focus 🎯 | License 📜 | Description 📝 |
+| Open-Source Project 🛠️ | GitHub_Stars_Count ⭐ | Primary Focus 🎯 | License 📜 | Description 📝 |
 | :--- | :--- | :--- | :--- | :--- |
 | **[KEDA](https://github.com/kedacore/keda)** | [![Stars](https://img.shields.io/github/stars/kedacore/keda?style=social&color=white)](https://github.com/kedacore/keda/stargazers) | Event-Driven Autoscaling | Apache-2.0 | Kubernetes Event-driven Autoscaling component that scales workloads down to 0 based on external metrics (Kafka, SQS, Prometheus, Redis). |
 | **[Cloud Custodian](https://github.com/cloud-custodian/cloud-custodian)** | [![Stars](https://img.shields.io/github/stars/cloud-custodian/cloud-custodian?style=social&color=white)](https://github.com/cloud-custodian/cloud-custodian/stargazers) | Cloud & K8s Governance | Apache-2.0 | CNCF Incubating rule engine using simple YAML policies to manage cloud resources, enforce off-hours power schedules, and clean up idle assets. |
