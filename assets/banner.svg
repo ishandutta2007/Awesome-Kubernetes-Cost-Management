@@ -1,135 +1,169 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
   <defs>
-    <!-- Background Gradient -->
+    <!-- Background Gradients -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b0f19" />
       <stop offset="50%" stop-color="#111827" />
       <stop offset="100%" stop-color="#070a12" />
     </linearGradient>
 
-    <!-- Animated Accent Gradients -->
+    <!-- Vibrant Gradient Accents -->
     <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00F2FE">
-        <animate attributeName="stop-color" values="#00F2FE; #4FACFE; #9333EA; #00F2FE" dur="8s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#4FACFE">
-        <animate attributeName="stop-color" values="#4FACFE; #9333EA; #00F2FE; #4FACFE" dur="8s" repeatCount="indefinite" />
-      </stop>
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#8B5CF6" />
     </linearGradient>
 
-    <linearGradient id="chart-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0" />
+    <linearGradient id="chart-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0" />
     </linearGradient>
-
-    <linearGradient id="green-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="100%" stop-color="#059669" />
-    </linearGradient>
-
-    <!-- Glow Filters -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="subtle-glow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
 
     <!-- Grid Pattern -->
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="1" stroke-opacity="0.5" />
+    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="1" stroke-opacity="0.6" />
     </pattern>
+
+    <!-- Embedded CSS Animations for Dynamic Effects -->
+    <style>
+      .orb-1 {
+        animation: floatOrb1 12s ease-in-out infinite alternate;
+      }
+      .orb-2 {
+        animation: floatOrb2 10s ease-in-out infinite alternate;
+      }
+      .badge-float-1 {
+        animation: floatBadge1 4s ease-in-out infinite alternate;
+      }
+      .badge-float-2 {
+        animation: floatBadge2 5s ease-in-out infinite alternate;
+      }
+      .badge-float-3 {
+        animation: floatBadge3 4.5s ease-in-out infinite alternate;
+      }
+      .chart-pulse {
+        animation: pulseChart 6s ease-in-out infinite alternate;
+      }
+
+      @keyframes floatOrb1 {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(60px, 40px); }
+      }
+      @keyframes floatOrb2 {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-50px, -30px); }
+      }
+      @keyframes floatBadge1 {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-8px); }
+      }
+      @keyframes floatBadge2 {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(8px); }
+      }
+      @keyframes floatBadge3 {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-6px); }
+      }
+      @keyframes pulseChart {
+        0% { opacity: 0.3; }
+        100% { opacity: 0.5; }
+      }
+    </style>
   </defs>
 
   <!-- Base Background -->
   <rect width="1200" height="400" fill="url(#bg-grad)" />
-  <rect width="1200" height="400" fill="url(#grid)" />
+  <rect width="1200" height="400" fill="url(#grid-pattern)" />
 
-  <!-- DYNAMIC BACKGROUND ELEMENTS (Behind Text) -->
-
-  <!-- Animated Glowing Orbs -->
-  <circle cx="150" cy="100" r="180" fill="#3B82F6" opacity="0.12" filter="url(#glow)">
-    <animate attributeName="cx" values="150; 220; 150" dur="12s" repeatCount="indefinite" />
-    <animate attributeName="cy" values="100; 150; 100" dur="10s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="1050" cy="300" r="200" fill="#8B5CF6" opacity="0.12" filter="url(#glow)">
-    <animate attributeName="cx" values="1050; 980; 1050" dur="14s" repeatCount="indefinite" />
-    <animate attributeName="cy" values="300; 250; 300" dur="11s" repeatCount="indefinite" />
-  </circle>
-
-  <!-- Animated Cost Graph Line & Fill (Right Background) -->
-  <g opacity="0.35" transform="translate(650, 80)">
-    <path d="M0,180 Q100,120 180,150 T320,80 T480,40 L480,220 L0,220 Z" fill="url(#chart-grad)" />
-    <path d="M0,180 Q100,120 180,150 T320,80 T480,40" fill="none" stroke="url(#primary-glow)" stroke-width="3" filter="url(#subtle-glow)">
-      <animate attributeName="d" values="
-        M0,180 Q100,120 180,150 T320,80 T480,40;
-        M0,170 Q100,140 180,130 T320,100 T480,30;
-        M0,180 Q100,120 180,150 T320,80 T480,40" dur="6s" repeatCount="indefinite" />
-    </path>
-    <!-- Graph Node Pulse -->
-    <circle cx="480" cy="40" r="6" fill="#00F2FE" filter="url(#glow)">
-      <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" />
-    </circle>
+  <!-- DYNAMIC BACKGROUND ORBS -->
+  <g class="orb-1">
+    <circle cx="180" cy="120" r="160" fill="#00F2FE" opacity="0.08" />
+  </g>
+  <g class="orb-2">
+    <circle cx="1020" cy="280" r="180" fill="#8B5CF6" opacity="0.1" />
   </g>
 
-  <!-- Floating Kubernetes / FinOps Badges (Animated Background Right) -->
-  <g transform="translate(850, 70)" opacity="0.85">
-    <g transform="translate(0, 0)">
-      <animateTransform attributeName="transform" type="translate" values="850,70; 850,60; 850,70" dur="4s" repeatCount="indefinite" />
-      <rect x="0" y="0" width="220" height="50" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
-      <text x="20" y="30" fill="#10B981" font-family="Segoe UI, Roboto, sans-serif" font-weight="bold" font-size="14">⚡ Cost Savings: -42%</text>
-    </g>
-
-    <g transform="translate(60, 75)">
-      <animateTransform attributeName="transform" type="translate" values="910,145; 910,155; 910,145" dur="5s" repeatCount="indefinite" />
-      <rect x="0" y="0" width="210" height="50" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
-      <text x="20" y="30" fill="#38BDF8" font-family="Segoe UI, Roboto, sans-serif" font-weight="bold" font-size="14">☸️ Rightsized Pods</text>
-    </g>
-
-    <g transform="translate(-20, 150)">
-      <animateTransform attributeName="transform" type="translate" values="830,220; 830,210; 830,220" dur="4.5s" repeatCount="indefinite" />
-      <rect x="0" y="0" width="230" height="50" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
-      <text x="20" y="30" fill="#A855F7" font-family="Segoe UI, Roboto, sans-serif" font-weight="bold" font-size="14">📊 OpenCost & FinOps</text>
-    </g>
+  <!-- DYNAMIC COST GRAPH & CHART (Right Side Background) -->
+  <g class="chart-pulse" transform="translate(640, 70)">
+    <!-- Filled Chart Area -->
+    <path d="M0,190 Q100,130 180,155 T340,90 T480,35 L480,220 L0,220 Z" fill="url(#chart-fill)" />
+    <!-- Glowing Trendline -->
+    <path d="M0,190 Q100,130 180,155 T340,90 T480,35" fill="none" stroke="url(#primary-glow)" stroke-width="3.5" stroke-linecap="round" />
+    <!-- Data Points -->
+    <circle cx="180" cy="155" r="5" fill="#38BDF8" />
+    <circle cx="340" cy="90" r="5" fill="#00F2FE" />
+    <circle cx="480" cy="35" r="7" fill="#10B981" />
   </g>
 
-  <!-- FOREGROUND CONTENT (Title & Subtitle - Crisp & Readable) -->
+  <!-- FLOATING KUBERNETES & FINOPS BADGES (Right Side Foreground) -->
+  <!-- Badge 1 -->
+  <g class="badge-float-1" transform="translate(850, 70)">
+    <rect x="0" y="0" width="230" height="52" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="30" cy="26" r="12" fill="#10B981" opacity="0.2" />
+    <text x="30" y="30" text-anchor="middle" font-size="14">⚡</text>
+    <text x="52" y="31" fill="#10B981" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="14">Cost Savings: -42%</text>
+  </g>
 
-  <!-- Category Tag -->
-  <rect x="70" y="75" width="280" height="32" rx="16" fill="url(#primary-glow)" opacity="0.15" />
-  <rect x="70" y="75" width="280" height="32" rx="16" fill="none" stroke="url(#primary-glow)" stroke-width="1.5" />
-  <text x="85" y="96" fill="#00F2FE" font-family="Segoe UI, Roboto, sans-serif" font-weight="bold" font-size="13" letter-spacing="1">☸️ KUBERNETES FINOPS ECOSYSTEM</text>
+  <!-- Badge 2 -->
+  <g class="badge-float-2" transform="translate(900, 145)">
+    <rect x="0" y="0" width="220" height="52" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="30" cy="26" r="12" fill="#38BDF8" opacity="0.2" />
+    <text x="30" y="30" text-anchor="middle" font-size="14">☸️</text>
+    <text x="52" y="31" fill="#38BDF8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="14">Rightsized Pods</text>
+  </g>
+
+  <!-- Badge 3 -->
+  <g class="badge-float-3" transform="translate(830, 220)">
+    <rect x="0" y="0" width="240" height="52" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="30" cy="26" r="12" fill="#A855F7" opacity="0.2" />
+    <text x="30" y="30" text-anchor="middle" font-size="14">📊</text>
+    <text x="52" y="31" fill="#A855F7" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="14">OpenCost &amp; FinOps</text>
+  </g>
+
+  <!-- FOREGROUND BRANDING (Left Side - Crisp & Clear Typography) -->
+
+  <!-- Top Pill Tag -->
+  <g transform="translate(70, 75)">
+    <rect x="0" y="0" width="285" height="32" rx="16" fill="#00F2FE" opacity="0.12" />
+    <rect x="0" y="0" width="285" height="32" rx="16" fill="none" stroke="#00F2FE" stroke-width="1.5" opacity="0.6" />
+    <text x="142" y="20" fill="#00F2FE" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="12" letter-spacing="1">☸️ KUBERNETES FINOPS ECOSYSTEM</text>
+  </g>
 
   <!-- Main Title -->
-  <text x="70" y="165" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="-0.5">
+  <text x="70" y="165" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="-0.5">
     Awesome Kubernetes
   </text>
-  <text x="70" y="218" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="44" fill="url(#primary-glow)" filter="url(#subtle-glow)" letter-spacing="-0.5">
+  <text x="70" y="218" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="44" fill="url(#primary-glow)" letter-spacing="-0.5">
     Cost Management 💰
   </text>
 
   <!-- Subtitle -->
-  <text x="70" y="270" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="400" font-size="17" fill="#94A3B8">
+  <text x="70" y="268" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="16" fill="#94A3B8">
     Curated List of SaaS Platforms &amp; Open-Source Tools for Cost Visibility,
   </text>
-  <text x="70" y="295" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="400" font-size="17" fill="#94A3B8">
+  <text x="70" y="293" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="16" fill="#94A3B8">
     Autonomous Rightsizing, FinOps Governance &amp; Intelligent Autoscaling
   </text>
 
   <!-- Footer Pills -->
   <g transform="translate(70, 325)">
     <!-- Pill 1 -->
-    <rect x="0" y="0" width="130" height="28" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
-    <text x="12" y="18" fill="#CBD5E1" font-family="Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600">🏷️ SaaS Pricing</text>
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="135" height="30" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="67" y="19" fill="#CBD5E1" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">🏷️ SaaS Pricing</text>
+    </g>
 
     <!-- Pill 2 -->
-    <rect x="142" y="0" width="145" height="28" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
-    <text x="154" y="18" fill="#CBD5E1" font-family="Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600">⭐ Open-Source Stars</text>
+    <g transform="translate(148, 0)">
+      <rect x="0" y="0" width="155" height="30" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="77" y="19" fill="#CBD5E1" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">⭐ Open-Source Stars</text>
+    </g>
 
     <!-- Pill 3 -->
-    <rect x="299" y="0" width="135" height="28" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
-    <text x="311" y="18" fill="#CBD5E1" font-family="Segoe UI, Roboto, sans-serif" font-size="12" font-weight="600">📉 Cloud FinOps</text>
+    <g transform="translate(315, 0)">
+      <rect x="0" y="0" width="140" height="30" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="70" y="19" fill="#CBD5E1" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">📉 Cloud FinOps</text>
+    </g>
   </g>
 </svg>
